@@ -93,10 +93,5 @@ function renderImages() {
   const markup = imagesTemplate(images);
   refs.listEl.innerHTML = markup;
 }
-renderImages();
 
-const lightbox = new SimpleLightbox('.gallery a', {
-  captionsData: 'alt',
-  captionDelay: 250,
-  scrollZoomFactor: 0.1,
-});
+renderImages();
