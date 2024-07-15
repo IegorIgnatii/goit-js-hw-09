@@ -92,6 +92,8 @@ function imagesTemplate(arr) {
 function renderImages() {
   const markup = imagesTemplate(images);
   refs.listEl.innerHTML = markup;
+
+  console.log(markup);
 }
 renderImages();
 
