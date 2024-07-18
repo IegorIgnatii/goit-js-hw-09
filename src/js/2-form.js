@@ -9,6 +9,7 @@ const formData = JSON.parse(localStorage.getItem(LOCAL_KEY)) || {
   message: '',
 };
 
+
 refs.formEl.addEventListener('input', e => {
   formData[e.target.name] = e.target.value.trim();
 
