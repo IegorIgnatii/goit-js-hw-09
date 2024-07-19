@@ -1,5 +1,5 @@
 const refs = {
-  formEl: document.querySelector('.data-form'),
+  formEl: document.querySelector('.feedback-form'),
 };
 
 const LOCAL_KEY = 'feedback-form-state';
@@ -9,7 +9,7 @@ const formData = JSON.parse(localStorage.getItem(LOCAL_KEY)) || {
   message: '',
 };
 
-refs.formEl.addEventListener('submit', e => {
+refs.formEl.addEventListener('input', e => {
   formData[e.target.name] = e.target.value.trim();
 
   saveToLs(LOCAL_KEY, formData);
@@ -19,6 +19,21 @@ refs.formEl.addEventListener('submit', e => {
     localStorage.setItem(key, json);
     console.log(json);
   }
+});
+
+formEl.addEventListener('submit', event => {
+  event.preventDefault();
+
+  const email = formEl.elements.email.value.trim();
+  const message = formEl.elements.message.value.trim();
+
+  if (email === '' || message === '') {
+    return alert('Fill please all fields');
+  }
+
+  console.log(formData);
+  localStorage.removeItem(LOCAL_KEY);
+  formEl.reset();
 });
 
 function loadFromLs(key) {
